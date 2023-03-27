@@ -13,17 +13,20 @@ terdapat file activity Diagaram : activity diagram monitoring kendaraan.png
 konfigurasi :
 
 1. download my project
-2. buka file .env
-3. sesuaikan konfigurasi db,
+2. buat / buka file .env
+3. jika tidak ada buat file .evn dengan melihat padat .env.example
+4. sesuaikan konfigurasi db,
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
    DB_DATABASE=your db name # setting your db name
    DB_USERNAME=root # setting your db username
    DB_PASSWORD= # setting your db password
-4. jalankan perintah "php artisan migrate --seed"
-5. jalankan perintah "php artisan serve"
-6. lalu buka url http://127.0.0.1:8000 pada browser
+5. buka terminal, dan masuk ke direktori project
+6. jalankan perintah composer install
+7. jalankan perintah "php artisan migrate --seed"
+8. jalankan perintah "php artisan serve"
+9. lalu buka url http://127.0.0.1:8000 pada browser
 
 ---
 
