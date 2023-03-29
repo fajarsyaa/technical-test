@@ -108,13 +108,13 @@ class VehicleOrderController extends Controller
     {
         if ($id == "mdr") {
             $v_orders = VehicleOrder::where('to_' . $id, 1)
-                ->where('approved_' . $id, "!=", true)
+                ->where('approved_' . $id, "!==", true)
                 ->where('is_reject', false)
                 ->get();
         } elseif ($id == "spv") {
             $v_orders = VehicleOrder::where('to_' . $id, 1)
-                ->where('approved_' . $id, "!=", true)
-                ->where('approved_mdr', true)
+                ->where('approved_' . $id, "!==", true)
+                // ->where('approved_mdr', true)
                 ->where('is_reject', false)
                 ->get();
         } elseif ($id == "hrd") {
@@ -122,7 +122,7 @@ class VehicleOrderController extends Controller
                 ->where('approved_' . $id, false)
                 ->where('is_reject', false)
                 ->where(function ($query) {
-                    $query->where('approved_hrd', true)
+                    $query->where('approved_mdr', true)
                         ->orWhere('approved_spv', true);
                 })
                 ->get();
@@ -153,6 +153,7 @@ class VehicleOrderController extends Controller
         VehicleOrder::where('id', $id)->update(['approved_mdr' => true]);
         return redirect()->back()->with('success', 'disetujui');
     }
+
     public function approveSpv($id)
     {
         VehicleOrder::where('id', $id)->update(['approved_spv' => true]);

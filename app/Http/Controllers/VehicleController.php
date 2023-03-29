@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('hrd')->only(['vehicleService', 'create', 'edit']);
+    }
+
     /**
      * Display a listing of the resource.
      */
