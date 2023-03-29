@@ -113,9 +113,9 @@ class VehicleOrderController extends Controller
                 ->get();
         } elseif ($id == "spv") {
             $v_orders = VehicleOrder::where('to_' . $id, 1)
-                ->where('approved_' . $id, "!==", true)
-                // ->where('approved_mdr', true)
-                ->where('is_reject', false)
+                ->where('approved_' . $id, "!=", true)
+                ->where('approved_mdr', true)
+                // ->where('is_reject', false)
                 ->get();
         } elseif ($id == "hrd") {
             $v_orders = VehicleOrder::where('to_' . $id, 1)
